@@ -1,6 +1,12 @@
-.title {
-    color: red
+.h1{
+    color:blue;
+    font-size: 30px;
+}
+#title {
+    color: rgb(106, 223, 164);
+    font-size: 70px;
 }
 .page-title{
-    color: red
+    color: red;
+    border: 1px solid black;
 }
