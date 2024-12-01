@@ -102,6 +102,7 @@ function copy() {
     })
     .pipe(gulp.dest("dist/"));
 }
+
 function images() {
   return gulp
     .src(resources.images, { encoding: false })
@@ -114,6 +115,7 @@ function images() {
     )
     .pipe(gulp.dest('dist/assets/images'));
 }
+
 function svgSprite() {
   return gulp
     .src(resources.svgSprite)
