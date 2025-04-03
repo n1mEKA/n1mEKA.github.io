@@ -7,7 +7,6 @@
         "autoprefixer": "^10.4.2",
         "browser-sync": "^2.27.7",
         "del": "^6.0.0",
-        "gulp": "^5.0.0",
         "gulp-csso": "^4.0.1",
         "gulp-file-include": "^2.3.0",
         "gulp-format-html": "^1.2.5",
@@ -22,7 +21,6 @@
         "imagemin-gifsicle": "^7.0.0",
         "imagemin-mozjpeg": "^10.0.0",
         "imagemin-optipng": "^8.0.0",
-        "package.json": "^2.0.1",
         "postcss": "^8.4.5",
         "postcss-sort-media-queries": "^4.2.1"
     },
@@ -32,6 +30,9 @@
         "start": "gulp start"
     },
     "dependencies": {
-        "ts-node": "^10.9.2"
+        "jquery": "^3.7.1",
+        "maska": "^3.1.1",
+        "normalize.css": "^8.0.1",
+        "vee-validate": "^4.15.0"
     }
 }

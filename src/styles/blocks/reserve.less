@@ -1,29 +1,251 @@
-.reserve{
-    display: grid;
-    grid-template-columns: 405px 1fr ;
+.reserve {
+  display: grid;
+  gap: 65px 11%;
+  grid-template-columns: 405px calc(89% - 405px);
+  grid-template-areas:
+    "checks scheme"
+    "order legend"; 
+  width: 100%;
+
+  @media @bw768 {
+    grid-template-columns: 200px calc(89% - 200px);
     grid-template-areas:
-    "checkbox scheme"
-    "order legend" ;
-    gap: 65px 11%;
+    "scheme scheme"
+    "checks legend"
+    "checks order";
+  }
+  @media @bw370 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "scheme"
+    "legend"
+    "checks"
+    "order";
+  }
+
+  &__submit {
+    width: 100%;
+  }
+
+  &__tickets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  &__checks {
+    grid-area: checks;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__order {
+    display: flex;
+    flex-direction: column;
+    grid-area: order;
+  }
+  &__scheme {
+    grid-area: scheme;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &__legend {
+    grid-area: legend;
+    display: flex;
+    gap: 36px;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    @media @bw370 {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
+  &__section-title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    &--mb30{
+        margin-bottom: 30px;
+    }
+  }
+
+  &__check {
+    margin-bottom: 10px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+  }
+
+  &__scheme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 780px;
+  }
+
+  &__scheme-title {
+    margin: 0 0 40px;
+    padding: 6px 56px;
+    background-color: @black;
+    color: @white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__scheme-wrapper {
+    position: relative;
     width: 100%;
 
-    &__checkbox{
-        grid-area: "checkbox";
-        background-color: aqua;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 51.15384%;
     }
+  }
+  &__scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-    &__schemetable{
-        grid-area: "schemetable";
-        background-color: blueviolet; 
+  &__tickets {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  &__qty {
+    &::after {
+      content: " " attr(data-caption) " | " attr(data-price);
     }
+  }
+  &__sum {
+    &::after {
+      content: attr(data-currency);
+      margin-left: 4px;
+      font-size: 0.95em;
+    }
+  }
+  &__total {
+    margin-bottom: 53px;
+    align-self: center;
+    font-weight: 600;
+    font-size: 20px;
+    &::before {
+      content: attr(data-caption);
+      margin-right: 30px;
+    }
+    &::after {
+      content: attr(data-currency);
+      margin-left: 4px;
+      font-size: 0.95em;
+    }
+  }
 
-    &__order{
-        grid-area: "order";
-        background-color: burlywood;
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 35px;
+    @media @bw370 {
+      margin: 0;
+      align-items: flex-start;
     }
+  }
 
-    &__legend{
-        grid-area: "legend";
-        background-color: brown;
+  &__price-item {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 24px;
+    margin-bottom: 15px;
+    padding-left: 34px;
+    padding-top: 2px;
+    font-size: 14px;
+    line-height: 19px;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        background-color: @black;
     }
+    &::after {
+        content: attr(data-caption);
+    }
+    &--red {
+        &::before {
+            background-color: @red;
+        }
+      }
+    &:last-child {
+        margin-bottom: 0;
+    }
+  }
+
+  &__nitation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media @bw370 {
+      align-items: flex-start;
+    }
+  }
+  &__note {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 24px;
+    margin-bottom: 13px;
+    padding-left: 51px;
+    padding-top: 2px;
+    font-size: 14px;
+    line-height: 19px;
+
+    &--free {
+        &::before,
+        &::after {
+            content: "";
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border: 1px solid @black;
+            border-radius: 50%;
+        }
+        &::after {
+            left: 12px;
+            border-color: @red;
+        }
+    }
+    &__block {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 6px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: @gray_dark;
+        }
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+  }
 }

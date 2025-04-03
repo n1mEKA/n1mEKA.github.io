@@ -1,73 +1,116 @@
-.pp{
-    display: none;
-    display: flex;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 90px 40px 50px;
-    background-color: fade(@grey, 90%);
-    overflow-y: auto;
-    z-index: 110;
-    &__wrapper{
-        box-sizing: border-box;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 1210px;
-        background-color: @grey;
-        background-image: url(../assets/images/noise.png);
-        background-position: 0 0;
-        background-size: auto;
-        background-repeat: repeat;
-        box-shadow: 0px 0px 30px rgba(31, 31, 30, 0.55);
+.pp {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 90px 50px 50px;
+  overflow-y: auto;
+  z-index: 110;
+  background-color: @gray;
+  @supports(backdrop-filter: blur(25px)) {
+      background-color: @black_40;
+      backdrop-filter: blur(25px);
+  }
 
-        @supports(backdrop-filter: blur(20px)){
-            box-shadow: none;
-        }
-    }
-    &__container{
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 950px;
-        margin: 0 auto;
-        padding: 0 40px 40px;
-    }
-    &__title{
-        box-sizing: border-box;
-    }
-    &__sticky-close {
-        position: sticky;
-        top: 0;
-        align-self: flex-end;
-        width: 0;
-        height: 0;
-    }
-      &__x-btn {
-        position: absolute;
-        top: -30px;
-        right: -30px;
-    }
-      &__title {
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        margin: -40px 0 70px -85px;
-        padding: 10px 85px;
-        width: 595px;
-        min-height: 80px;
-        background-color: @black;
-        text-transform: uppercase;
-        font-weight: 400;
-        font-family: @font2;
-        font-size: 22px;
-        line-height: 1.36;
-        color: @white;
-        letter-spacing: 0.02em;
-        z-index: 1;
-    }
+  @media @bw600 {
+      padding: 80px 20px 50px;
+  }
+
+  &__container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      max-width: 1210px;
+      width: 100%;
+      margin: auto;
+      padding: 70px 40px 40px;
+      background-color: @gray;
+      background-image: url(../assets/images/noise.png);
+      background-repeat: repeat;
+      background-position: 0 0;
+      background-size: auto;
+  }
+  &__title {
+      margin: -110px 0 70px;
+      box-sizing: border-box;
+      padding: 10px 84px;
+      max-width: 595px;
+      background-color: @black;
+      text-transform: uppercase;
+      font-family: @font2;
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: 0.44px;
+      color: @white;
+      @media @bw600 {
+          font-size: 14px;
+          font-weight: 300;
+          padding: 9px 20px;
+          max-width: 225px;
+      }
+  }
+  &__sticky-close {
+      position: sticky;
+      align-self: flex-end;
+      top: 0;
+
+      width: 0;
+  }
+  &__sticky-btn {
+      position: absolute;
+      right: -70px;
+      top: -100px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      background-color: @black;
+      color: @white;
+      transition: background-color 0.2s;
+      @media @bw600 {
+          width: 36px;
+          height: 36px;
+          right: auto;
+          top: -90px;
+      }
+
+      &:hover {
+          @media(hover:hover) {
+              background-color: @red_dark;
+          }
+      }
+  }
+
+  &__form {
+      padding: 0 130px;
+      @media @bw1340 {
+          padding: 0 98px;
+      }
+      @media @bw768 {
+          padding: 0;
+      }
+  }
+
+ &__wrapper {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1210px;
+  margin: auto;
+  background-color: @gray;
+  background-image: url(../assets/images/noise.png);
+  background-position: 0 0;
+  background-size: auto;
+  background-repeat: repeat;
 }
-
+}

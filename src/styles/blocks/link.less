@@ -1,0 +1,26 @@
+.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    height: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: @black;
+    transition: color 0.2s;
+    &:hover {
+            color: @red;
+    }
+    &:active {
+        color: @red;
+    }
+    &__icon {
+        display: inline-block;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        margin-left: 20px;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
